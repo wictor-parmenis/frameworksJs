@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+    <style>
+      .erase {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="watches">
+        <input type="text" v-model="country">
+    </div>
+
+
+  </body>
+<!--  SCRIPT -->
+    <!--Computed properties are used for manipulating datas.
+    And the methods are used for events and actions.
+Ps: computed properties are more light then methods.-->
+    <script>
+     let app = new Vue({
+         el: '#watches',
+         data: {
+            country: 'Brasil'
+         },
+         watch:{
+         country: function(newValue, oldValue){
+           console.log(newValue, oldValue);
+         }
+         }
+     })
+    </script>
+  </body>
+</html>
