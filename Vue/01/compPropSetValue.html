@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+    <style>
+      .erase {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <h1> Name: {{person.firstname}} </h1>
+        <p> Full name: {{fullname}}</p>
+    </div>
+
+
+  </body>
+<!--  SCRIPT -->
+    <!--Computed properties are used for manipulating datas.
+    And the methods are used for events and actions.
+Ps: computed properties are more light then methods.-->
+    <script>
+     let app = new Vue({
+         el: '#app',
+         data: {
+             person: {
+                 firstname: 'Wictor',
+                 lastname: 'Gomes'
+             }
+         },
+         computed: {
+             fullname: {
+               get: function(){
+                    return `${this.person.firstname} ${this.person.lastname}`
+                  },
+               set: function(newValue){
+                    name = newValue.split(' ');
+                    this.person.firstname = name[0],
+                    this.person.lastname = name[1]
+               }
+               }
+         }
+     })
+    </script>
+  </body>
+</html>

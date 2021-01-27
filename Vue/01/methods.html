@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+    <style>
+      .erase {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="methods">
+      <h1> {{ message }}</h1>
+      <input type="text" placeholder="Typewrite a new message."  v-on:blur="replaceMessage(
+        $event.target.value
+      )">
+    </div>
+
+<!--  SCRIPT -->
+    
+    <script>
+     let a = new Vue({
+       el: '#methods',
+       data: {
+         message: 'React'
+       },
+       methods: {
+         reverseMessage: function (){
+           this.message = this.message.split('').reverse().join('')
+         },
+         replaceMessage(newMessage){
+           this.message = newMessage;
+         }
+       }
+     })
+    </script>
+  </body>
+</html>

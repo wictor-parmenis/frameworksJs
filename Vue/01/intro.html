@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+    <style>
+      .erase {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- If in Vue -->
+    <div id="app-3" class="erase">
+      <p v-if="seen">Now you see me :)</p>
+    </div>
+
+    <!-- For in Vue  -->
+    <div id="app-4" class="erase">
+      <ol>
+        <li v-for="thing in things">
+          {{ thing.text }}
+        </li>
+      </ol>
+    </div>
+
+    <!-- Interact click with Vue -->
+    <div class="erase" id="app-5">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseText">Reverse message</button>
+    </div>
+
+    <!--Two way binding-->
+    <div id="app-6" class="erase">
+      <p>{{ message }}</p>
+      <input v-model="message" type="text" />
+    </div>
+
+    <!-- Using components -->
+    <div id="app-7" class="erase">
+        <ol>
+            <todo-item
+            v-for="item in itens"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+    </div>
+
+    <div id="app-8">
+        <h1 v-bind:title="tagMessage">{{ message }}</h1>
+        <h2>Same title with caps lock: {{ message.toUpperCase() }}</h2>
+        <p>My name is: {{person.name}} and my age is: {{person.age}}.</p>
+        <span v-html="tag">{{tag}}</span>
+    </div>
+
+<!--  SCRIPT -->
+    
+    <script>
+      let app8 = new Vue({
+          el: "#app-8",
+          data: {
+              message: 'Django',
+              person: {
+                  name: 'Wictor',
+                  age: '21'
+              },
+          tag: '<button>Change</button>',
+          tagMessage: 'This is my title.'
+          }
+      })
+
+
+      Vue.component('todo-item', {
+          props: ['todo'],
+          template: '<li>{{ todo.text }}</li>'
+      })
+      
+      let app7 = new Vue({
+          el: "#app-7",
+          data: {
+            itens: [
+                {id: 1, text:'apple'},
+                {id:2 , text:'banana'},
+                {id:3 , text:'orange'}
+            ]
+          }
+      })
+
+      let app6 = new Vue({
+        el: "#app-6",
+        data: {
+          message: "Today"
+        }
+      });
+
+      let app5 = new Vue({
+        el: "#app-5",
+        data: {
+          message: "Django with Vue :)"
+        },
+        methods: {
+          reverseText: function () {
+            this.message = this.message.split("").reverse().join("");
+          }
+        }
+      });
+
+      let app3 = new Vue({
+        el: "#app-3",
+        data: {
+          seen: false
+        }
+      });
+
+      let app4 = new Vue({
+        el: "#app-4",
+        data: {
+          things: [{ text: "Angular" }, { text: "React" }, { text: "Next" }]
+        }
+      });
+    </script>
+  </body>
+</html>
