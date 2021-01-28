@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="conditional">
+        <h1  v-if="show">Wictor Tec</h1>
+        <h3 key='have'v-if="tickets >= 50" >Have tickets.</h3>
+        <h3 key='almost' v-else-if="tickets >= 1 "> RUNNNN</h3>
+        <h3 key='noHave' v-else>No have more tickets  :( </h3>
+    </div>
     
 </body>
+<script>
+    let app = new Vue({
+        el: '.conditional',
+        data: {
+            show: true,
+            tickets: 100
+        }
+    })
+</script>
 </html>
