@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div$, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="filter">
+        <p> Name normal: {{ name }}</p>
+        <p> Name upper: {{ name | upper}}</p>
+        <p> Name lower: {{ name | lower }}</p>
+        <input type="text" v-model="salary" placeholder="Tapewrite your salary">
+        <p>My salary is: {{ salary | real }} {{ salary | pluralize(['real', 'reais'])}}</p>
+        <p>{{ msg | truncate(50)}} </p>
+    </div>
+</body>
+<script>
+    let app = new Vue({
+        el: '#filter',
+        data: {
+            name: 'Wictor Gomes',
+            salary: 1,
+            msg: '    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus provident odit eum, eius laboriosam a. Vitae quia accusantium neque praesentium officiis fuga inventore placeat. Placeat expedita nulla reiciendis molestias ipsa?'
+        },
+        filters: {
+            upper: function(value){
+                return value.toUpperCase()
+            },
+            lower: function(value){
+                return value.toLowerCase()
+            },
+            real: function(value){
+                return `R$${parseInt(value).toFixed(2)}`
+            }
+        }
+    })
+</script>
+</html>

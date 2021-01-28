@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+    <style>
+      .erase {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <h2 class="title">Real today</h2>
+        <input type="text" id="dolar">
+        <input type="button" value="convert" onclick="convert()">
+        <!--<p id="state">{{ message }}</p>-->
+    </div>
+    <div class="results" id="results" style="display: none;">
+        <p class="real"> {{ message }}</p>
+    </div>
+  </body>
+
+<!--  SCRIPT -->
+<!--  SCRIPT -->
+
+    <script>
+     function convert() {
+         let dolar = document.getElementById('dolar');
+         console.log(dolar.value);
+         let results = document.getElementById('results')
+         let price = 0;
+        let url = 'https://api.exchangeratesapi.io/latest?baseUSD&symbols=BRL';
+        fetch(url).then((res) => {
+            return res.json()
+        }).then((data) => {
+
+        price = Math.round(data.rates.BRL * 100) / 100;
+
+        // Vue        
+        let app = new Vue({
+         el: '#results',
+         data: {
+             message: price * dolar.value
+         }
+     })
+     });
+     results.style.display = 'inline-block';
+     }
+
+    </script>
+  </body>
+</html>
