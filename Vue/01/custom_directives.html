@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>custom-directives</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <div id="directives">
+        <p> {{name}} </p>
+        <p v-upper> {{name}} </p>
+        <h2 v-capitalize >hello world super mario</h2>
+    </div>
+    
+</body>
+<script>
+
+    Vue.directive('upper', {
+        inserted(element) {
+            element.innerText = element.innerText.toUpperCase();
+        }
+    })
+
+    let app = new Vue({
+    el: '#directives',
+    data: {
+        name: 'wictor tec company'
+    },
+    directives: {
+        capitalize: function(el) {
+            let words = el.innerText.split(' ');
+            words.forEach((text, index) => {
+                words[index] = text.charAt(0).toUpperCase() + text.slice(1);
+            });
+            el.innerText = words.join(' ')
+        }
+    }
+    })
+    
+    
+</script>
+</html>
