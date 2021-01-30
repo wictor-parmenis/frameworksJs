@@ -7,12 +7,12 @@
     <title>v-bind</title>
 </head>
 <body>
-    <!--v-for is for alter attributes of HTML.-->
 
     <div id="directives">
         <h2>Check the site bellow </h2>
         <a  v-bind:href="url_paper">Click here</a><br>
         <a v-bind:href="url_pdf">Click here for pdf</a>
+        <p :[arg]="value">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam eum quis non amet in blanditiis et ducimus minus commodi voluptas maxime reprehenderit porro, quia dolore. Esse delectus nobis eligendi nam?</p>
     </div>
     
 </body>
@@ -21,7 +21,9 @@
         el: '#directives',
         data: {
             url_paper: 'https://pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=cd9f372ecc5f9d70d198695325479a6ec66e041c53a42cf5&e=true#rmcl',
-            url_pdf: 'https://pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=de619b38456ac6a42676a9da02d6e6542983b8605944f0a6&e=true#rmcl'
+            url_pdf: 'https://pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=de619b38456ac6a42676a9da02d6e6542983b8605944f0a6&e=true#rmcl',
+            arg: 'title',
+            value: 'text of example'
         }
     })
 </script>

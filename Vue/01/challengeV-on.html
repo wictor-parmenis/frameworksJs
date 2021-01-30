@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>v-on - challenge</title>
+</head>
+<body>
+
+    <div id="directives">
+        <input type="text" placeholder="Filter peoples" v-on:keyup="filterPerson">
+        <ul>
+            <li v-for='people in personsFiltred'>
+                {{people}}
+            </li>
+        </ul>
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#directives',
+        data: {
+            peoples: [
+                'José Wictor', 'João Paulo', 'Érico Rocha', 'Flávio Augusto', 'Márcia Brandão', 
+                'José Melo', 'Pablo Duarte', 'Fernando Melo'
+            ],
+            personsFiltred: []
+        },
+        methods: {
+            filterPerson() {
+                this.personsFiltred =  this.peoples.filter(name => {
+                    return name.toUpperCase().includes(event.target.value.toUpperCase())
+                }) 
+            }
+        },
+
+        created() {
+            this.personsFiltred = this.peoples;
+        }
+         
+    })
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>v-model</title>
+</head>
+<body>
+
+    <div id="directives">
+        <h1 v-bind:style="{ fontSize: textSize + 'px' } ">My new blog</h1>
+        <input v-model="textSize" type="text" value="Typewrite the text size.">
+        <h4 v-bind:style=" {color: colorText} ">See the new features</h4>
+        <input v-model="colorText" type="text" value="Typewrite the color of text.">
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#directives',
+        data: {
+            textSize: 10,
+            colorText: 'green'
+        }
+    })
+</script>
+</html>

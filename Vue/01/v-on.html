@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>v-model</title>
+</head>
+<body>
+
+    <div id="directives">
+        <p @click=reverseMessage> {{message}} </p>
+        <h4 v-on:[eventname]='reverseMessage'> {{message}} </h4>
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#directives',
+        data: {
+            message: 'Vue.js is top !',
+            eventname: 'click'
+        },
+        methods: {
+            reverseMessage() {
+                this.message = this.message.split('').reverse().join('');
+                
+            }
+        } 
+    })
+</script>
+</html>
