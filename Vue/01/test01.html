@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="../vue.js"></script>
+    <style>
+      .erase {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <h1 v-if='show'>Test</h1>
+        <p key='one' v-if='day >= 50'> today </p>
+        <p key='two' v-else-if='day >= 10'> Tomorrow </p>
+        <input type="button" value="submit" id="btn" onclick="moreDays()">
+        
+    </div>
+
+<!--  SCRIPT -->
+    
+    <script>
+     let days = 0;
+     function moreDays(){
+         days = days + 10;
+     }
+     let app = new Vue({
+         el: '#app',
+         data: {
+             show: true,
+             message: 'today',
+             day: 0
+         }
+     });
+
+     
+    </script>
+  </body>
+</html>

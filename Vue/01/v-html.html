@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!--Only use in safe places. This resource has not much safe. -->
+
+    <div id="v-html">
+        <div v-html="headerHTML"></div>
+        
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#v-html',
+        data: {
+            headerHTML: `
+                <header>
+                    <h1 style="text-align: center;">Super Blog</h1>  
+                    <img src="./assets/logo-hcode.svg" style="margin: auto 30%;">
+                </header>
+                `
+        }
+    })
+</script>
+</html>

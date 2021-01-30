@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>v-once</title>
+</head>
+<body>
+    <!--The directive v-once this responsible for be the cryptonit of Vue hahha-->
+
+    <div id="v-once">
+        <div v-once>{{ person.name }}</div>
+        
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#v-once',
+        data: {
+            person: {
+                name: 'Wictor Gomes',
+                age: 21
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>v-bind</title>
+</head>
+<body>
+    <!--v-for is for alter attributes of HTML.-->
+
+    <div id="directives">
+        <h2>Check the site bellow </h2>
+        <a  v-bind:href="url_paper">Click here</a><br>
+        <a v-bind:href="url_pdf">Click here for pdf</a>
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#directives',
+        data: {
+            url_paper: 'https://pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=cd9f372ecc5f9d70d198695325479a6ec66e041c53a42cf5&e=true#rmcl',
+            url_pdf: 'https://pagseguro.uol.com.br/checkout/nc/sender-identification.jhtml?t=de619b38456ac6a42676a9da02d6e6542983b8605944f0a6&e=true#rmcl'
+        }
+    })
+</script>
+</html>

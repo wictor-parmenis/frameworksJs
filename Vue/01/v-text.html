@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!--The v-show change the property display of css, and v-if: remove or 
+        insert the element.
+    The v-if is more slower because your structure, and v-show is more faster
+    because this only change the css of element.
+    If you need change any element much times.... Use v-show. -->
+
+    <div id="v-show">
+        <h4>{{ message }}</h4>
+        <h4 v-text="message"></h4>
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#v-show',
+        data: {
+            message: 'Wictor Gomes'
+        }
+    })
+</script>
+</html>

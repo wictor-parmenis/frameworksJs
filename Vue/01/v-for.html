@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>v-for</title>
+</head>
+<body>
+    <!--v-for is responsable for do effectives loops.-->
+
+    <div id="directives">
+        <ul>
+            <!--<li v-for="city in cities">{{city}}</li> ARRAY -->
+            <li v-for="i, v in movies"> {{v}} - {{i}}  </li>
+        </ul>
+
+        <h2>Famous company</h2>
+        <p v-for="(value, key, index) in company"> {{key}} - {{value}} </p>
+        
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#directives',
+        data: {
+            /* cities: [
+                'New Orleans', 'New York', 'Recife', 'Paulista'
+            ] array */
+            cities: [
+                {name: 'New Orleans',
+                country: 'EUA'
+            },
+            {
+                name: 'New York',
+                country: 'EUA'
+            },
+            {
+                name: 'Recife',
+                country: 'Brazil'
+            },
+            {
+                name: 'Paulista',
+                country: 'Brazil'
+            }],
+            movies: [
+                'Jurassic Park', 'Dumbo', 'Rei leão II'
+            ],
+            company: {
+                name: 'Facebook',
+                creator: 'Mark',
+                year: 2004
+            }
+        }
+    })
+</script>
+</html>
