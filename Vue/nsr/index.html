@@ -21,28 +21,46 @@
                 <h4 v-cloak>{{message}}</h4>
             </div>
             <ul>
-                <li> <a href="#" v-cloak> {{menu.home}} </a></li>
                 <li> <a v-bind:href="urls.aboutUrl" v-cloak> {{menu.about}} </a> </li>
                 <li > <a v-bind:href="urls.contactUrl" v-cloak> {{menu.contact}} </a> </li>
                 <li class="divBtn"> <a class="btnBuy" v-bind:href="urls.requestUrl" v-cloak> <b>{{menu.request}}</b>  </a></li>
             </ul>
             
         </header>
-        <h2 class="mainTitle"> Seja bem vindo a meditação NSR ! </h2>
-        <section class="topic" v-for="topic in topics">
-            <h3 class="titleTopic"> {{ topic.titleTopic }} </h3>
-            <img v-bind:src="topic.imgTopic" class="imgTopic" alt="">
-            <p class="contentTopic">
-                {{ topic.contentTopic }}
-            </p>
-        </section>
+        <h2 class="mainTitle"> Seja bem vindo(a) a meditação NSR ! </h2>
+        <div class="main">
+           
+            <div class="sidebar">
+                <ul>
+                    <h3 class="leftSide">Outros conteúdos</h3>
+                    
+                    <p class="bulletP borderBotton" ><a href="#">Entendendo o estresse</a> </p>
+                    
+                    <p class="bulletP borderBotton"> <a href="">Meditação transcendental</a> </p>
+                    <p class="bulletP borderBotton"> <a href="">NSR na família e nos negócios</a> </p>
+                    <p class="bulletP borderBotton"> <a href="">Perguntas mais frequentes</a> </p>
+                    <p class="bulletP"> <a href="">Depoimentos</a> </p>
+                    <p class="bulletP"> <a href="#">Quem somos</a> </p>
+                </ul>
+            </div>
+            
+            <section v-cloak class="topic" v-for="topic in topics">
+                <h3 class="titleTopic"> {{ topic.titleTopic }} </h3>
+                <img v-bind:src="topic.imgTopic" class="imgTopic" alt="">
+                <p class="contentTopic">
+                    {{ topic.contentTopic }}
+                </p>
+            </section>
+            
+        
+        
+        </div>
         <!-- Next step: section for contact and form. -->
         <footer>
             <img src="./picLogo.png" alt="logo de site de meditação ying yang">
            <p>contato_nsrbr@nsrbr.com</p> 
            <p>Todos os direitos reservados &copy;</p> 
         </footer>
-        
     </div>
     <script src="../vue.js"></script>
     <script>
@@ -51,10 +69,10 @@
             data: {
                 message: 'Natural Stress Relief',
                 menu: {
-                    home: 'Home',
                     about: 'A técnica NSR',
                     request: 'Faça o pedido',
-                    contact: 'Contato'
+                    contact: 'Contato',
+                    blog: 'Blog'
                 },
                 urls: {
                     requestUrl: 'http://www.nsrbr.com/nsrbr/pedido.html',
@@ -81,8 +99,37 @@
                                     Esta situação não é incomum. Na realidade, a maioria de nós poderia descrever nossa vida diária de maneira similar. O problema não é que nos falte uma técnica de respiração, o exercício perfeito, ou tempo suficiente de relaxamento, ouvindo música. O problema é que vivemos nossa vida experienciando apenas três estados de consciência: despertos, sonhando e dormindo profundamente.
                         `
                     }
+                ],
+                itens: {
+                    understood: 'Entendendo o estresse',
+                    transcendental: 'Meditação transcendental',
+                    family: 'NSR nos negócios e na família',
+                    faq: 'Perguntas mais frequentes',
+                    talks: 'Depoimentos',
+                    about: 'Quem somos'
+                },
+                topicUnd: [
+                    {
+                        titleTopic: 'Entendendo o estresse',
+                        imgTopic: './picTitle01.jpg',
+                        altImagTopic: 'Mulher jovem meditando',
+                        contentTopic: `
+                                       Entendendo o estresse. Algumas pessoas possuem empregos estressantes ou uma vida doméstica estressante e gostariam mais que tudo de serem capazes de se livrarem desse estresse diário. Outras sentem que lhes falta energia mental ou direção. Ainda outras não têm tais problemas, mas gostariam de ter mais satisfação em seus relacionamentos pessoais, trabalharem mais criativamente ou produtivamente, ou sentirem-se mais preenchidas na vida. Nós só podemos realmente apreciar a vida quando possuímos força e paz interior. Assim como um empreiteiro teria que edificar para baixo, construindo alicerces para edificar um alto arranha-céu, nós precisamos nos retirar da atividade física e mental por uns poucos minutos para obter força de pensamento e ação ao longo de um dia inteiro.
+                                        A relação da Meditação NSR com o resto de sua vida é esta: a NSR livra você do estresse e purifica o seu sistema nervoso. Isto torna a percepção na vida diária mais clara e mais rica e nossa atividade mais eficaz e agradável.
+                        `  
+                    }
                 ]
+        },
+        methods: {
+            changeColor() {
+                console.log('ok!')
+            },
+
+            showUnds() {
+                this.topics.style.display = 'none';
+            }
         }
+
     })
     </script>
 </body>

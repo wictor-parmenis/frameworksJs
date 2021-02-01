@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styles in line | Objects</title>
+</head>
+<body>
+    <div id="styles">
+        <input type="text" v-model='fontSizeProp'>
+        <h2 :style='{fontSize: fontSizeProp + "px"}'> Wictor Tec</h2>
+        <hr>
+        <div :style='styleRgb'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis animi, dolorum, odit commodi nulla veniam labore earum laboriosam ipsum libero quod id minima. Voluptatum distinctio, similique sequi nulla nostrum delectus.</div>
+        <input type="text" v-model='styleRed'>
+        <input type="text" v-model='styleBlue'>
+        <input type="text" v-model='styleGreen'>
+    </div>
+    
+
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#styles',
+            data: {
+                fontSizeProp: 28,
+                styleRed: 255,
+                styleGreen: 105,
+                styleBlue: 80
+            },
+            computed: {
+                styleRgb() {
+                    return {
+                        color: `rgb(${this.styleRed},${this.styleGreen}, ${this.styleBlue}) `
+                    } 
+                }
+            }
+        })
+    </script>
+</body>
+</html>
