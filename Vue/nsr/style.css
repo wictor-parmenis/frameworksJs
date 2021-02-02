@@ -137,6 +137,7 @@ section{
     margin: auto;
     text-align: center;    
     grid-column: 1;
+    /* height: 30vw; */
 }
 
 .titleTopic{
@@ -155,7 +156,7 @@ section{
 }
 
 footer{
-    height: 9em;
+    height: 10em;
     text-align: center;
     background-color: var(--terciarycolor);
     margin-top: 10em;
@@ -172,6 +173,6 @@ footer p {
 }
 
 footer img{
-    width: 3%;
+    width: 2%;
     transform: translateY(70%);
 }
