@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Style-Classes with Vue</title>
+    <style>
+        .selected{
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <table class="table">
+            <tr v-for='city in cities'>
+                <td v-bind:class=' [selectedClass, error ? statusErrorClass : statusClass ]  ' > {{ city }} </td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            cities: [
+                'Orlando', 'Paris', 'Paulista', 'Recife'
+            ],
+            selectedClass: 'selected',
+            statusClass: 'alert-success',
+            statusErrorClass: 'alert-danger',
+            error: false
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Animations css</title>
+    <style>
+        .animation_1-enter-active{
+            animation: aniOne 1s;
+        }
+
+        .animation_1-leave-active{
+            animation: aniOne 1s reverse;
+        }
+
+        @keyframes aniOne{
+            from {
+                background-color: #fff;
+            }
+            to {
+                background-color: #999;
+            }
+        }
+
+            /*          */
+        
+        .aniSecond-enter-active{
+            animation: animation_second 2s;
+        }
+
+        .aniSecond-leave-active{
+            animation: animation_second 2s reverse;
+        }
+
+        @keyframes animation_second{
+            0%{
+                background-color: #fff;
+                font-size: 20px;
+            }
+
+            50%{
+                background-color: sandybrown;
+                font-size: 40px;
+            }
+
+            100%{
+                background-color: #fff;
+                font-size: 20px;
+            }
+        }
+        
+
+    </style>
+
+    <!--
+        Hey! What diference enter transitions and animations?
+        Transitions - we have control of begin state and end-state;
+        Animations - we have control of more phases about animation of element.
+
+    -->
+</head>
+<body>
+    
+    <div id="app">
+        <transition name='animation_1'>
+            <h2 v-if='show' class="padding5">Wictor Tec</h2>
+        </transition>    
+        <hr>
+        <button @click='show2 = !show2'>Click here</button>
+        <transition name='aniSecond'>
+            <div v-if='show2'>
+                Vue.js is top !
+            </div>
+        </transition>
+        
+    </div>
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            show2: false
+        }
+    })
+</script>
+</html>
