@@ -1,0 +1,23 @@
+{
+  "name": "Frameworks_training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wictor-parmenis/frameworksJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wictor-parmenis/frameworksJs/issues"
+  },
+  "homepage": "https://github.com/wictor-parmenis/frameworksJs#readme",
+  "dependencies": {
+    "bootstrap": "4.0.0"
+  }
+}
