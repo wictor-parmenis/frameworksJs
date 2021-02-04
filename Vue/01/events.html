@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="../desafio-1-blog/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Events with Vue.js</title>
+    <style>
+        
+    </style>
+
+    
+</head>
+<body>
+    
+
+    <div id="app">
+        
+        <button v-on:click="call($event)"> Click here</button>
+        <hr>
+        <a href="http://timeronline.com.br/" v-on:click='call($event)'>Timer here</a>
+        
+    </div> 
+
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            
+        },
+        // Use methods for execute events in js.
+        methods: {
+
+            call(e) {
+                e.preventDefault()
+                console.log(e)
+            }
+            
+        }
+    })
+</script>
+</html>

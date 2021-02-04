@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/">
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="../desafio-1-blog/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Transition enter elements</title>
+    <style>
+        .fade-transition-enter-active, .fade-transition-leave-active{
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        
+
+        .fade-transition-enter, .fade-transition-leave-to{
+            opacity: 0%;
+        }
+    </style>
+
+    
+</head>
+<body>
+    
+
+    <div id="app">
+        <input type="text" v-model="name" >
+        <transition 
+        name='fade-transition'        
+        >
+            <h3 v-if='name.length > 10' key='valid' class="alert-success"> Valid name </h3>
+            <h3 v-cloak v-else key='notValid' class="alert-danger"> Invalid name </h3>
+        </transition>    
+        <hr>        
+    </div> 
+
+    
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            name: 'José Wictor'
+        }
+    })
+</script>
+</html>
