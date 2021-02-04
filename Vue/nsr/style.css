@@ -5,6 +5,7 @@
 
 a{
     list-style-type: none;
+    text-decoration: none;
 }
 :root{
     --primarycolor: #C7F9CC;
@@ -29,7 +30,7 @@ a{
 
 header{
     background-color: var(--secondcolor);
-    height: 4em;
+    height: 5em;
     -webkit-box-shadow: 2px 5px 5px rgba(175, 175, 175, 0.77);
 	-moz-box-shadow:    2px 5px 5px rgba(175, 175, 175, 0.77);
     box-shadow:         2px 5px 5px rgba(175, 175, 175, 0.77);

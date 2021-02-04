@@ -19,6 +19,6 @@
   "homepage": "https://github.com/wictor-parmenis/frameworksJs#readme",
   "dependencies": {
     "animate.css": "3.7",
-    "bootstrap": "4.0.0"
+    "bootstrap": "4.0"
   }
 }
