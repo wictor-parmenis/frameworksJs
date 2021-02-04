@@ -19,10 +19,23 @@
             .link, .link:hover {
                 color: #f37520
             }
+
+            /*   */
+            .fade-login-enter, .fade-login-leave-to{
+              opacity: 0;
+            }
+
+            .fade-login-enter-active, .fade-login-leave-active{
+              transition: opacity ease-in-out .3s;
+            }
+
+
+            /*   */
+
         </style>
     </head>
     <body class="hold-transition login-page">
-        <div class="login-box" id="app">
+        <div v-cloak class="login-box" id="app">
             <div class="login-logo">
                 <a href="#">
                     <b>Hcode Treinamentos</b>
@@ -32,8 +45,8 @@
 
             <div class="row links">
                 <div class="col-12">
-                    <a href="#" class="link">Login</a>
-                    <a href="#" class="link" style="position: absolute; right: 0">Se cadastrar</a>
+                    <a v-cloak href="#" @click.prevent='action = "login"'  class="link">Login</a>
+                    <a v-cloak href="#" @click.prevent='action = "register"'  class="link" style="position: absolute; right: 0">Se cadastrar</a>
                 </div>
             </div>
 
@@ -41,10 +54,18 @@
             
             <div class="card">
                 <div class="card-body login-card-body">
+                  
+
                   <!--TRANSITION-->
-                  <transition>
+                  <div role='alert' v-if='isFormSend' :class="['alert', isFormSend ? 'alert-success' : 'alert-danger' ]">Form sent with success.</div>
+
+                  <transition
+                  name='fade-login'
+                  mode='out-in'
+                  v-cloak
+                  >
                     <!-- LOGIN PART -->
-                    <div class="login-part" v-if='action == "login"'>
+                    <div v-cloak class="login-part" v-if='action == "login"' key='login'>
                       
                       <p class="login-box-msg">Fazer Login</p>
                       <form method="post">
@@ -75,7 +96,7 @@
                           </div>
                           
                           <div class="col-4">
-                              <button type="submit" class="btn btn-primary btn-block">Login</button>
+                              <button v-cloak  @click.prevent='sendForm' type="submit" class="btn btn-primary btn-block">Login</button>
                           </div>
                           
                           </div>
@@ -84,7 +105,7 @@
                       
 
                       <!-- REGISTER PART -->
-                      <div class="register" v-else>
+                      <div v-cloak class="register" v-else key='register'>
 
                         <p class="login-box-msg">Se cadastrar</p>
 
@@ -132,7 +153,7 @@
                             </div>
                             
                             <div class="col-4">
-                              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                              <button v-cloak @click.prevent='sendForm' type="submit" class="btn btn-primary btn-block">Cadastrar</button>
                             </div>
                             
                           </div>
@@ -140,7 +161,6 @@
                       </div>
                       <!--TRANSITION-->
                   </transition>
-                
                 </div>
             </div>
         </div>
@@ -154,7 +174,13 @@
             el: '#app',
             data: {
               message: 'Wictor Tec',
-              action : 'login'
+              action : 'login',
+              isFormSend: false
+            },
+            methods: {
+              sendForm() {
+                this.isFormSend = true;
+              }
             }
           })
         </script>
