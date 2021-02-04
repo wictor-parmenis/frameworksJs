@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Components 01</title>
+</head>
+<body>
+    <div id="app">
+        <text-render></text-render>
+        <hr>
+        <list></list>
+    </div>
+    
+    
+    
+
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+
+        Vue.component('text-render',{
+            template: `
+            <div>
+                <h2>Wictor Tec</h2>
+                <p>Soluctions in technology</p>
+            </div>
+            `
+        });
+
+        /*Vue.component('new-list',{
+            template: `
+            <ul>
+                <li v-for="person in persons" > {{person}} </li>
+            </ul>
+            `,
+            data: function(){
+                return{
+                    persons:  [
+                        'Luiz', 'Eustáquio', 'Flávio'
+                    ]
+                }
+            }
+
+        })*/
+
+        let listItemComp = {
+            props: ["name"],
+            template: '<li> {{name}} </li>'
+        }
+
+        let listComponent = {
+            template: `
+            <ul>
+                <list-item v-for="person in names" :name=person></list-item>
+            </ul>
+            `,
+            data: function(){
+                return{
+                    names:  [
+                        'Luiz', 'Eustáquio', 'Flávio'
+                    ]
+                }
+            },
+
+            components: {
+                listItem: listItemComp
+            }
+        };    
+
+        
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                list: listComponent
+            }
+        })
+
+    </script>
+</body>
+</html>

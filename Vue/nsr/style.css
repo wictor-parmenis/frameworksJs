@@ -141,6 +141,34 @@ section{
     /* height: 30vw; */
 }
 
+.fade-section-enter-active, .fade-section-leave-active{
+    transition: opacity ease-in-out .3s;
+}
+
+.fade-section-enter, .fade-section-leave-to{
+    opacity: 0;
+}
+/*     */
+
+.fade-meditate-enter-active, .fade-meditate-leave-active{
+    transition: opacity ease-in-out .3s;
+}
+
+.fade-meditate-enter, .fade-meditate-leave-to{
+    opacity: 0;
+}
+
+
+.fade-stress-enter-active, .fade-stress-leave-active{
+    transition: opacity ease-in-out .3s;
+}
+
+.fade-stress-enter, .fade-stress-leave-to{
+    opacity: 0;
+}
+
+
+
 .titleTopic{
     font-size: 1.5em;
     text-align: left;

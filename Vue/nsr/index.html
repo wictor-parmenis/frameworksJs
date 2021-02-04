@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Meditação NSR | Natural Stress Relief</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         [v-cloak]{
@@ -15,11 +16,13 @@
     </style>
 </head>
 <body>
-    <div id="container">
-        <header>
+    <div id="container" class="bg-light">
+        <header class="bg-light">
             <div class="logo">
-                <h5>Meditação NSR</h5>
+                <a href="#" >
+                <h5 v-cloak @click='content = "home"'>Meditação NSR</h5>
                 <h6 v-cloak>{{message}}</h6>
+            </a>
             </div>
             <ul>
                 <li> <a href="#">Quem somos</a> </li>
@@ -36,24 +39,61 @@
                 <ul>
                     <h4 class="leftSide">Outros conteúdos</h4>
                     
-                    <p class="bulletP borderBotton" ><a href="#">Entendendo o estresse</a> </p>
-                    
-                    <p class="bulletP borderBotton"> <a href="">Meditação transcendental</a> </p>
+                    <p class="bulletP borderBotton" ><a href="#" @click='content = "stress"'>Entendendo o estresse</a> </p>
+                    <p class="bulletP borderBotton"> <a href="#" @click='content = "meditate"' >Meditação transcendental</a> </p>
                     <p class="bulletP borderBotton"> <a href="">NSR na família e nos negócios</a> </p>
                     <p class="bulletP borderBotton"> <a href="">Perguntas mais frequentes</a> </p>
                     <p class="bulletP"> <a href="">Depoimentos</a> </p>
                 </ul>
             </div>
+
+            <!--TRANSITIONS-->
+            <transition
+            name='fade-section'
+            mode='out-in'
+            v-cloak
+            >
+                <section v-if='content == "stress"' v-cloak>
+                    <h3 class="titleTopic"> {{ stress.titleTopic }} </h3>
+                    <img v-bind:src="stress.imgTopic" class="imgTopic" alt="">
+                    <p class="contentTopic">
+                        {{ stress.contentTopic }}
+                    </p>
+                </section>
+            </transition>
+
+            <!--TRANSITIONS-->
+            <transition
+            name='fade-meditate'
+            mode='out-in'
+            v-cloak
+            > 
+                <section v-if='content == "meditate"' v-cloak>
+                    <h3 class="titleTopic"> {{ meditate.titleTopic }} </h3>
+                    <img v-bind:src="meditate.imgTopic" class="imgTopic" alt="">
+                    <p class="contentTopic">
+                        {{ meditate.contentTopic }}
+                    </p>
+                </section>
+            </transition>    
             
-            <section v-cloak class="topic" v-for="topic in topics">
-                <h3 class="titleTopic"> {{ topic.titleTopic }} </h3>
-                <img v-bind:src="topic.imgTopic" class="imgTopic" alt="">
-                <p class="contentTopic">
-                    {{ topic.contentTopic }}
-                </p>
-            </section>
+
+            <!--TRANSITIONS-->
+            <transition
+            name='fade'
+            mode='out-in'
+            v-cloak
+            >
+                <section v-if='content == "home"' v-cloak class="topic" v-for="topic in topics" v-cloak>
+                    <h3 class="titleTopic"> {{ topic.titleTopic }} </h3>
+                    <img v-bind:src="topic.imgTopic" class="imgTopic" alt="">
+                    <p class="contentTopic">
+                        {{ topic.contentTopic }}
+                    </p>
+                </section>
+            </transition>
+                
             
-        
         
         </div>
         <!-- Next step: section for contact and form. -->
@@ -68,6 +108,7 @@
         let app = new Vue({
             el: '#container',
             data: {
+                content: 'home',
                 message: 'Natural Stress Relief',
                 menu: {
                     about: 'A técnica NSR',
@@ -109,17 +150,25 @@
                     talks: 'Depoimentos',
                     about: 'Quem somos'
                 },
-                topicUnd: [
-                    {
-                        titleTopic: 'Entendendo o estresse',
-                        imgTopic: './picTitle01.jpg',
-                        altImagTopic: 'Mulher jovem meditando',
-                        contentTopic: `
-                                       Entendendo o estresse. Algumas pessoas possuem empregos estressantes ou uma vida doméstica estressante e gostariam mais que tudo de serem capazes de se livrarem desse estresse diário. Outras sentem que lhes falta energia mental ou direção. Ainda outras não têm tais problemas, mas gostariam de ter mais satisfação em seus relacionamentos pessoais, trabalharem mais criativamente ou produtivamente, ou sentirem-se mais preenchidas na vida. Nós só podemos realmente apreciar a vida quando possuímos força e paz interior. Assim como um empreiteiro teria que edificar para baixo, construindo alicerces para edificar um alto arranha-céu, nós precisamos nos retirar da atividade física e mental por uns poucos minutos para obter força de pensamento e ação ao longo de um dia inteiro.
-                                        A relação da Meditação NSR com o resto de sua vida é esta: a NSR livra você do estresse e purifica o seu sistema nervoso. Isto torna a percepção na vida diária mais clara e mais rica e nossa atividade mais eficaz e agradável.
-                        `  
-                    }
-                ]
+                stress: {
+                    titleTopic: 'Entendendo o estresse',
+                    imgTopic: './picTitle02.png',
+                    altImagTopic: 'Mulher jovem meditando em casa',
+                    contentTopic: `
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nostrum facere, ad, a, quos odit quaerat beatae ea voluptates itaque veniam eos vel iusto quibusdam cum. Vel consequatur aspernatur officiis?
+
+                    `
+                },
+
+                meditate: {
+                    titleTopic: 'Meditação transcendental',
+                    imgTopic: './picMeditacaoTrans.jpg',
+                    altImagTopic: 'Maharishi Mahesh Yogi',
+                    contentTopic: `
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nostrum facere, ad, a, quos odit quaerat beatae ea voluptates itaque veniam eos vel iusto quibusdam cum. Vel consequatur aspernatur officiis?
+
+                    `
+                }
         },
         methods: {
             changeColor() {
