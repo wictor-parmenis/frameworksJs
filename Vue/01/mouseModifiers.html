@@ -21,27 +21,17 @@
                
                 <div class="form-group">
                     <label for="">Press the keys bellow.</label>
-                    <input type="text" class="form-control" placeholder="Press Ctrl" 
-                    @keydown.ctrl='exec'>
+                    <input type="text" class="form-control" placeholder="Press middle button of your mouse." 
+                    @click.middle='exec'>
 
-                    <input type="text" class="form-control" placeholder="Press shift" 
-                    @keydown.shift='exec'>
+                    <input type="text" class="form-control" placeholder="Press right button of your mouse." 
+                    @click.right='exec'>
 
-                    <input type="text" class="form-control" placeholder="Press meta" 
-                    @keydown.meta='exec'>
+                    <input type="text" class="form-control" placeholder="Press left button of your mouse." 
+                    @click.left='exec'>
 
-                    <input type="text" class="form-control" placeholder="Press alt" 
-                    @keydown.alt='exec'>
                 </div>
             </form>
-            <hr>
-            <div class="row">
-                <div class="col" @click.ctrl.exact="toogleClass">1</div>
-                <div class="col" @click.ctrl.exact="toogleClass">2</div>
-                <div class="col" @click.ctrl.exact="toogleClass">3</div>
-                <div class="col" @click.ctrl.exact="toogleClass">4</div>
-            </div>
-
         </div>
     </div>     
 </body>
@@ -54,15 +44,8 @@
         // Use methods for execute events in js.
         methods: {
             exec(e) {
-                console.log(e.key);
-            },
-            toogleClass(e) {
-                let el = e.target;
-                let isMethod = (el.classList.contains('bg-info')) ? 'remove' : 'add';
-                eval(`el.classList.${isMethod}('bg-info')`);
-            }
-
-            }
+                console.log(e.type);
+            }}
             
         })
 </script>

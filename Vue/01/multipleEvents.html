@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="../desafio-1-blog/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Multiple events</title>
+    <style>
+        
+    </style>
+
+    
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Wictor Tec</h1>
+            <div
+            :style="{backgroundColor: background, width: '200px', height: '200px'}"
+            v-on="{mouseenter: changeColor, mouseout: changeColor}"
+            >
+
+            </div>
+        </div>
+    </div>     
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            background: 'red'
+        },
+        // Use methods for execute events in js.
+        methods: {
+            changeColor(){
+                let backgroundColor = (this.background == 'red') ? 'blue' : 'red';
+                this.background = backgroundColor;
+            }
+        }
+            
+        })
+</script>
+</html>
