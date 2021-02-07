@@ -32,7 +32,6 @@ export default {
   },
   data() {
     return {
-      championship: 'Brazilian championship',
       currentSectionComponent: 'AppSectionBanner'
     }
   },

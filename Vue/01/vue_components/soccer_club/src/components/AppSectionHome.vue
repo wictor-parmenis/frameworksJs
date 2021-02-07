@@ -29,6 +29,7 @@
 
 import AppSectionBanner from '../components/AppSectionBanner'
 import AppSectionInput from './AppSectionInput'
+import {mapGetters} from 'vuex'
 
 export default { 
     name: 'Banner',
@@ -39,13 +40,34 @@ export default {
     },
     data(){
         return{
-            myClub: 'Palmeiras'
+            
         }
     },
     props: {
-        championship: String,
         currentComponent: String
+    },
+    computed: {
+        ...mapGetters({
+            championship: 'getChampionship',
+            myClub: 'getClubName'
+        })
+
+        // ...mapState(['championship']),
+        // ...mapState({
+        //     myClub:  'clubName'})
     }
+    
+
+
+    // {
+    //     // ALERT, dont use ; inside of computed. NEVER!
+    //     championship(){
+    //         return this.$store.state.championship
+    //     },
+    //     myClub() {
+    //         return this.$store.state.clubName
+    //     }
+    // }
 }
 </script>
 
