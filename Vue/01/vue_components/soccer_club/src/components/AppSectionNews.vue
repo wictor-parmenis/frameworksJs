@@ -7,11 +7,16 @@
             :key="item.id"
             :img-name-news='item.imgName'
             :alt-image-news="item.imgAlt"
-            :title-news="item.newsTitle"
             :content-news="item.newsContent"
             :date-news='item.newsDate'
-            />
-
+            >
+            <template #title>
+                <h2>{{item.newsTitle }}</h2>  
+            </template>
+            <p>
+                {{item.newsContent | truncate(180)}}
+            </p>
+            </app-section-news-single>
         </div>
     </section>
 </template>
