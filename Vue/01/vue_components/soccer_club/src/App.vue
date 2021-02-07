@@ -3,11 +3,13 @@
 <!--HEADER BELLOW-->
     <app-header
     @select-championship="changeChampionship"
+    @change-component="changeComponent"
     />
 
 <!--SECTION BELLOW-->
     <app-section-home
     :championship="championship"
+    :current-component="currentSectionComponent"
     />
 
 <!--FOOTER BELLOW-->
@@ -30,12 +32,28 @@ export default {
   },
   data() {
     return {
-      championship: 'Brazilian championship'
+      championship: 'Brazilian championship',
+      currentSectionComponent: 'AppSectionBanner'
     }
   },
   methods: {
     changeChampionship(value) {
       this.championship = value;
+    },
+    changeComponent(value) {
+      let component;
+      switch (value){
+        case 'home':
+        default:
+          component = 'AppSectionBanner';
+        break;
+
+        case 'news':
+          component = 'AppSectionNews';
+        break;
+      }
+
+      this.currentSectionComponent = component;
     }
   }
 }

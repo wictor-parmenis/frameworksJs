@@ -5,9 +5,13 @@
                 <h3>You is looking for notices of {{championship}} </h3>
             </div>
         </div>
-        <app-section-banner/>
-        <app-section-news/>
+        <component
+        :is="currentComponent">
 
+        </component>
+        <br>
+        <br>
+        <br>
         <div class="container">
             <div class="row my-club mt-5">
                 <div class="col-6">
@@ -24,14 +28,13 @@
 <script>
 
 import AppSectionBanner from '../components/AppSectionBanner'
-import AppSectionNews from '../components/AppSectionNews'
 import AppSectionInput from './AppSectionInput'
 
 export default { 
     name: 'Banner',
     components: {
         AppSectionBanner,
-        AppSectionNews,
+        AppSectionNews: () => import('./AppSectionNews.vue'),
         AppSectionInput
     },
     data(){
@@ -40,7 +43,8 @@ export default {
         }
     },
     props: {
-        championship: String
+        championship: String,
+        currentComponent: String
     }
 }
 </script>

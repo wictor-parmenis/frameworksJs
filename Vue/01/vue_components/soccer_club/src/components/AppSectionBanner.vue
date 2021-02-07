@@ -22,7 +22,7 @@ export default{
 
 <style scoped>
     section{
-        margin-top: 25px;
+        margin-top: 10px;
     }
 
     .container .row{

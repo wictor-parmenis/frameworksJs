@@ -7,12 +7,14 @@
             <slot name="title"></slot>
             <slot>Pattern notice</slot>
             
-            <span class="font-italic"> {{dateNews}} </span>
+            <span class="font-italic"> {{formatDate(dateNews)}} </span>
         </div>
     </div>
 </template>
 
 <script>
+import Utils from './../mixins/UtilsMixins'
+
 export default {
     props: {
         imgNameNews: {
@@ -27,7 +29,8 @@ export default {
             type: String,
             required: true
         }
-    }
+    },
+    mixins: [Utils]
 }
 </script>
 

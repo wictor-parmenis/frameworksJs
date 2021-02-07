@@ -8,8 +8,8 @@
            class="img d-inline-block align-top" id="logo"> Soccer Club
         </a>
         <div class="links mr-2">
-          <a href="#" class="btn mr-5">Home</a>
-          <a href="#" class="btn mr-5">Teams</a>
+          <a href="#" class="btn mr-5" @click.prevent="$emit('change-component','home')">Home</a>
+          <a href="#" class="btn mr-5" @click.prevent='$emit("change-component", "news")'>News</a>
           <a href="#" class="btn mr-5">Scores</a>
           <select name="championship" id="select-championship" class="form-control"
           @change="$emit('select-championship', $event.target.value)"

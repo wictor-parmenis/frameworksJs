@@ -68,7 +68,7 @@ export default {
 <style scoped>
     section{
         padding: 50px 0px;
-        margin-top: 125px;
+        margin-top: 50px;
         background-color: orange;
     }
 
