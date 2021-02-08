@@ -5,10 +5,11 @@
                 <h3>You is looking for notices of {{championship}} </h3>
             </div>
         </div>
-        <component
+        <router-view></router-view>
+        <!-- <component
         :is="currentComponent">
 
-        </component>
+        </component> -->
         <br>
         <br>
         <br>
@@ -27,15 +28,12 @@
 
 <script>
 
-import AppSectionBanner from '../components/AppSectionBanner'
 import AppSectionInput from './AppSectionInput'
 import {mapGetters} from 'vuex'
 
 export default { 
     name: 'Banner',
     components: {
-        AppSectionBanner,
-        AppSectionNews: () => import('./AppSectionNews.vue'),
         AppSectionInput
     },
     data(){

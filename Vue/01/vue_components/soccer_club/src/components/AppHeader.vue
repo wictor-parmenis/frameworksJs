@@ -8,15 +8,16 @@
            class="img d-inline-block align-top" id="logo"> Soccer Club
         </a>
         <div class="links mr-2">
-          <a href="#" class="btn mr-5" @click.prevent="$emit('change-component','home')">Home</a>
-          <a href="#" class="btn mr-5" @click.prevent='$emit("change-component", "news")'>News</a>
+          <router-link class="btn mr-5" to="/">Home</router-link>
+          <router-link class="btn mr-5" to="/News">News</router-link>
+
           <a href="#" class="btn mr-5">Scores</a>
           <select name="championship" id="select-championship" class="form-control"
           @change="$emit('select-championship', $event.target.value)"
           >
             <option value="Brazilian championship">Brazilian championship</option>
             <option value="English championship">English championship</option>
-            <option value="English championship" selected>Champions League</option>
+            <option value="Champions championship" selected>Champions League</option>
             <option value="Italian championship">Italian championship</option>
           </select>
         </div>
@@ -58,5 +59,10 @@ export default {
     .links a:focus{
         outline: none !important;
         box-shadow: none !important;
+    }
+
+    .link-active{
+      background-color: #fff;
+      color: black !important;
     }
 </style>

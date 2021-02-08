@@ -7,10 +7,7 @@
     />
 
 <!--SECTION BELLOW-->
-    <app-section-home
-    :championship="championship"
-    :current-component="currentSectionComponent"
-    />
+    <app-section-home/>
 
 <!--FOOTER BELLOW-->
     <app-footer/>
@@ -22,6 +19,8 @@
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
 import AppSectionHome from './components/AppSectionHome'
+// import {mapMutations} from 'vuex'
+import {mapActions} from 'vuex'
 
 export default {
   name: 'App',
@@ -32,13 +31,22 @@ export default {
   },
   data() {
     return {
-      currentSectionComponent: 'AppSectionBanner'
     }
   },
   methods: {
-    changeChampionship(value) {
-      this.championship = value;
-    },
+    ...mapActions(['changeChampionship']),
+
+    // changeChampionship: function(value){
+    //   this.$store.dispatch('changeChampionship', value);
+    // },
+
+    // ...mapMutations({
+    //   changeChampionship: 'setChampionship'
+    // }),
+    // changeChampionship(value) {
+    //   this.$store.commit('setChampionship', value);
+    //   // this.championship = value;
+    // },
     changeComponent(value) {
       let component;
       switch (value){

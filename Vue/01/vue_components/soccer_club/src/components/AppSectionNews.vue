@@ -11,7 +11,8 @@
             :date-news='item.newsDate'
             >
             <template #title>
-                <h2>{{item.newsTitle }}</h2>  
+                <router-link :to=" {name: 'notice', params: {idnotice: item.id}}"
+                tag="h2">{{item.newsTitle }}</router-link>
             </template>
             <p>
                 {{item.newsContent | truncate(180)}}
@@ -23,16 +24,30 @@
 
 <script>
 import AppSectionNewsSingle from '../components/AppSectionNewsSingle'
+import {mapGetters} from 'vuex'
+
 export default {
     components: {
         AppSectionNewsSingle
     },
     data() {
         return {
-            news: []
+            // news: []
         }
     },
-    created(){
+    computed: {
+        ...mapGetters({
+            news: 'getNews'
+        })
+
+        
+    },
+    methods: {
+        // goToPage(page){
+        //     this.$router.push(page);
+        // }
+    }
+    /*created(){
         this.news = [{
                 id : 1,
                 imgName : 'news1.jpg',
@@ -59,10 +74,10 @@ export default {
                 newsContent : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sint possimus laudantium sequi adipisci vitae sit ipsa reiciendis repellendus laboriosam quibusdam cum ducimus mollitia, itaque magni porro molestiae quos facilis!"
                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat dolorum cupiditate facilis temporibus distinctio alias. Iure, iusto in porro magni, eaque eum doloribus molestias eveniet facere eos nemo quam doloremque?`,
                 newsDate : '2020-02-01'
-            }]
+            }]*/
     }
 
-}
+
 </script>
 
 <style scoped>
