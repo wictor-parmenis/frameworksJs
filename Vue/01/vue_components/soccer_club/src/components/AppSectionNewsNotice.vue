@@ -21,8 +21,10 @@ export default {
             return this.$store.getters.getNewsFromId(this.$route.params.idnotice);
         }
     },
-    mixins: [Utils]
-}
+    mixins: [Utils],
+    
+        }
+        
 </script>
 
 <style scoped>
