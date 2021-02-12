@@ -2,6 +2,7 @@
   "dependencies": {
     "animate.css": "3.7",
     "bootstrap": "4.0",
+    "npx": "^10.2.2",
     "vue2-filters": "^0.11.1"
   }
 }

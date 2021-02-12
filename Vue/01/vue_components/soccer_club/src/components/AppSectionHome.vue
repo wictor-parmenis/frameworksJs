@@ -5,7 +5,13 @@
                 <h3>You is looking for notices of {{championship}} </h3>
             </div>
         </div>
-        <router-view></router-view>
+        <transition
+        name="fade-view"
+        mode="out-in">
+            <router-view></router-view>
+        </transition>
+        
+
         <!-- <component
         :is="currentComponent">
 
@@ -70,5 +76,16 @@ export default {
 </script>
 
 <style scoped>
+
+.fade-view-enter-active{
+    transition: opacity .3s ease-in-out;
+}
+.fade-view-leave-active{
+    transition: opacity .3s ease-in-out;
+}
+
+.fade-view-enter, .fade-view-leave-to{
+    opacity: 0%;
+}
 
 </style>
